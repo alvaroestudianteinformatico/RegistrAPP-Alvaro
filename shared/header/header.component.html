@@ -1,0 +1,28 @@
+<header>
+  <!-- Encabezado de la aplicación -->
+
+  <nav>
+    <!-- Contenedor de navegación -->
+
+    <img src="assets/duoc.png" alt="Duoc Logo" class="nav-left" />
+    <!-- Logo de Duoc UC, se alinea a la izquierda usando la clase 'nav-left' -->
+
+    <ul class="nav-right">
+      <!-- Lista de elementos de navegación, alineada a la derecha -->
+
+      <li *ngIf="isLoggedIn">
+        <!-- Mostrar mensaje de bienvenida si el usuario está logueado -->
+        Bienvenido: {{usuario}}
+        <!-- Muestra el nombre de usuario usando interpolación de Angular -->
+      </li>
+
+      <li *ngIf="!isLoggedIn">
+        <!-- Mostrar botón de inicio de sesión si el usuario no está logueado -->
+        <a routerLink="/page/login" class="login-button">Iniciar Sesión</a>
+        <!-- Enlace que lleva a la página de inicio de sesión -->
+        <!-- La clase 'login-button' se puede usar para estilizar el botón -->
+      </li>
+    </ul>
+  </nav>
+  <!-- Fin del contenedor de navegación -->
+</header>

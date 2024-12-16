@@ -1,0 +1,70 @@
+<ion-header>
+  <!-- Cabecera de la página de registro de usuario -->
+  <ion-toolbar>
+    <!-- Barra de herramientas -->
+    <ion-title>Registro de Usuario</ion-title>
+    <!-- Título de la página -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Contenido de la página -->
+  <form [formGroup]="registrarForm" (ngSubmit)="onSubmit()">
+    <!-- Formulario vinculado a un FormGroup de Angular para la validación de los campos -->
+
+    <!-- Campos del formulario -->
+    <ion-item>
+      <!-- Campo para los nombres del usuario -->
+      <ion-label position="floating">Nombres</ion-label>
+      <ion-input formControlName="nombres"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- Campo para los apellidos del usuario -->
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input formControlName="Apellidos"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- Campo para el correo electrónico del usuario -->
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input formControlName="correo Electronico" type="email"></ion-input>
+      <!-- Se especifica que el tipo de entrada es 'email' para validar correos electrónicos -->
+    </ion-item>
+
+    <ion-item>
+      <!-- Campo para la contraseña del usuario -->
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="contrasena" type="password"></ion-input>
+      <!-- El tipo de entrada 'password' oculta el texto al escribir -->
+    </ion-item>
+
+    <ion-item>
+      <!-- Campo para el número de teléfono del usuario -->
+      <ion-label position="floating">Número de teléfono</ion-label>
+      <ion-input formControlName="número"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- Selector para el rol del usuario (Profesor o Alumno) -->
+      <ion-label position="floating">Rol</ion-label>
+      <ion-select formControlName="Rol">
+        <ion-select-option value="Profesor">Profesor</ion-select-option>
+        <ion-select-option value="Alumno">Alumno</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <!-- Campo para el correo de recuperación -->
+      <ion-label position="floating">Correo de recuperación</ion-label>
+      <ion-input [(ngModel)]="correoRecuperacion" type="email"></ion-input>
+      <!-- Enlace de doble vía con el modelo de correo de recuperación y tipo 'email' -->
+    </ion-item>
+
+    <!-- Botón para enviar los datos del formulario -->
+    <ion-button expand="full" type="submit">Registrar</ion-button>
+
+    <!-- Botón para enviar el link de recuperación de contraseña -->
+    <ion-button expand="full" (click)="recuperarContrasena()">Enviar link de recuperación</ion-button>
+  </form>
+</ion-content>

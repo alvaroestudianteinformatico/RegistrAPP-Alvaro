@@ -1,0 +1,67 @@
+<footer>
+  <!-- Pie de página de la aplicación -->
+
+  <nav>
+    <!-- Contenedor de navegación -->
+
+    <ul>
+      <!-- Lista de enlaces de navegación -->
+
+      <li>
+        <!-- Enlace a la página de inicio -->
+        <a routerLink="/page/home" routerLinkActive="active">Home</a>
+        <!-- 'routerLink' redirige a la página de inicio, 'routerLinkActive="active"' añade una clase activa si es la página actual -->
+      </li>
+
+      <!-- Mostrar opción de Login solo si el usuario no está logueado -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+        <!-- 'ng-container' es un contenedor angular que no genera un elemento HTML, solo lo usa para contener la lógica -->
+        <li>
+          <a routerLink="/page/login" routerLinkActive="active">Login</a>
+          <!-- Enlace a la página de login, visible solo si el usuario no está logueado -->
+        </li>
+      </ng-container>
+
+      <!-- Menú para usuarios logueados -->
+      <ng-template #loggedInMenu>
+        <!-- 'ng-template' contiene el menú que se mostrará cuando el usuario esté logueado -->
+
+        <!-- Opción para profesores -->
+        <ng-container *ngIf="rol === 'profesor'">
+          <li>
+            <a routerLink="/page/vista-profesor" routerLinkActive="active">Profesor</a>
+            <!-- Enlace a la vista específica para profesores, visible solo si el rol es 'profesor' -->
+          </li>
+        </ng-container>
+
+        <!-- Opción para alumnos -->
+        <ng-container *ngIf="rol === 'alumno'">
+          <li>
+            <a routerLink="/page/vista-alumno" routerLinkActive="active">Alumno</a>
+            <!-- Enlace a la vista específica para alumnos, visible solo si el rol es 'alumno' -->
+          </li>
+        </ng-container>
+
+        <!-- Opción para cerrar sesión -->
+        <li>
+          <a routerLink="/page/logout" routerLinkActive="active">Logout</a>
+          <!-- Enlace para cerrar la sesión, visible para todos los usuarios logueados -->
+        </li>
+
+        <!-- Mostrar opciones de profesor y alumno si el rol es 'admin' -->
+        <ng-container *ngIf="rol === 'admin'">
+          <li>
+            <a routerLink="/page/vista-profesor" routerLinkActive="active">Profesor</a>
+            <!-- Opción para vista de profesor visible si el usuario es admin -->
+          </li>
+          <li>
+            <a routerLink="/page/vista-alumno" routerLinkActive="active">Alumno</a>
+            <!-- Opción para vista de alumno visible si el usuario es admin -->
+          </li>
+        </ng-container>
+      </ng-template>
+
+    </ul>
+  </nav>
+  <!-- Fin del contenedor de navegación -->
+</footer>

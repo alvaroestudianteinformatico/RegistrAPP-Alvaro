@@ -1,0 +1,37 @@
+<ion-content>
+  <!-- Contenido principal de la página -->
+
+  <form>
+    <!-- Formulario sin FormGroup, pero con validaciones básicas como 'required' -->
+
+    <!-- Campo de entrada para el nombre de usuario -->
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" formControlName="username" required></ion-input>
+      <!-- 'formControlName' asume que está vinculado a un FormControl, y 'required' hace el campo obligatorio -->
+    </ion-item>
+
+    <!-- Selector para elegir el rol del usuario -->
+    <ion-item>
+      <ion-label>Rol</ion-label>
+      <ion-select formControlName="role" required>
+        <!-- Opciones para el rol: Profesor o Estudiante -->
+        <ion-select-option value="profesor">Profesor</ion-select-option>
+        <ion-select-option value="estudiante">Estudiante</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Campo de entrada para el número de teléfono -->
+    <ion-item>
+      <ion-label position="floating">Número de teléfono</ion-label>
+      <ion-input type="tel" formControlName="phone" required></ion-input>
+      <!-- 'type="tel"' indica que el campo espera un número de teléfono, y 'required' lo hace obligatorio -->
+    </ion-item>
+
+    <!-- Botón para redirigir a la página de recuperación de contraseña -->
+    <ion-button routerLink="/page/login" routerLinkActive="active">
+      Recuperar contraseña
+    </ion-button>
+    <!-- 'routerLink' navega a la página de login para la recuperación de contraseña -->
+  </form>
+</ion-content>
